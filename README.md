@@ -41,7 +41,7 @@ To create the EKS infrastructure, follow these steps:
 
     3- Apply all the Kubernetes deployments from the kubernetes folder:
         ```bash
-            kubectl apply -f kubenetes/ .
+            kubectl apply -f kubenetes/*
 
 
 
