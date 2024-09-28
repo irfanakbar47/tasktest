@@ -2,10 +2,9 @@ name: Deploy to EKS
 
 on:
   push:
-    paths:
-      - 'kubernetes/**'  # testing Trigger the workflow only if there are changes in the kubernetes directory
-    branches:
-      - main  # Adjust the branch according to your setup
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
 
 jobs:
   deploy:
