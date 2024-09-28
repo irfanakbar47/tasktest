@@ -27,10 +27,10 @@ jobs:
 
       - name: Set up kubectl
         run: |
-          aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
+          aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
         env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          EKS_CLUSTER_NAME: ${{ secrets.EKS_CLUSTER_NAME }}
+          AWS_REGION: eu-north-1
+          EKS_CLUSTER_NAME: task-eks-cluster
 
       - name: Apply Kubernetes manifests
         run: |
