@@ -2,12 +2,12 @@
 
 Task Completion Steps
 # Task Completion Steps
-
-## 1. AWS Configuration
+```bash
+ 1. AWS Configuration
 
 First, run the following command to configure AWS CLI with your profile details:
 
-```bash
+
 aws configure
 
 You will be prompted to enter:
