@@ -1,28 +1,33 @@
 name: Deploy to EKS
+
 on:
   push:
+
     branches:
-      - main
+      - main  # Adjust the branch according to your setup
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Check DNS Resolution
-        run: |
-          echo "Checking DNS resolution for STS endpoint..."
-          nslookup sts.${{ secrets.AWS_REGION }}.amazonaws.com
-      
+      - name: Log AWS Region
+        #run: echo "AWS Region: ${{ secrets.AWS_REGION }}"
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-          audience: "sts.${{ secrets.AWS_REGION }}.amazonaws.com" 
+
+      - name: Construct STS Endpoint
+        run: |
+          echo "Constructed STS Endpoint: sts.${{ secrets.AWS_REGION }}.amazonaws.com"
+          nslookup sts.${{ secrets.AWS_REGION }}.amazonaws.com
 
       - name: Set up kubectl
         run: |
