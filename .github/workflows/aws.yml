@@ -6,7 +6,7 @@ on:
     branches:
       - main  # Adjust the branch according to your setup
 env:
-  AWS_REGION: eu-norht-1                   # set this to your preferred AWS region, e.g. us-west-1
+  AWS_REGION: eu-north-1                   # set this to your preferred AWS region, e.g. us-west-1
   EKS_CLUSTER_NAME: task-eks-cluster          
 jobs:
   deploy:
