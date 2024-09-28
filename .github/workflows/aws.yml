@@ -2,8 +2,7 @@ name: Deploy to EKS
 
 on:
   push:
-    paths:
-      - 'kubernetes/**'
+
     branches:
       - main
 
