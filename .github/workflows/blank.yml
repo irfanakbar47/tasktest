@@ -1,0 +1,31 @@
+name: Deploy to EKS
+
+on:
+  push:
+    paths:
+      - 'kubernetes/**'  # Trigger the workflow only if there are changes in the kubernetes directory
+    branches:
+      - main  # Adjust the branch according to your setup
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Set up kubectl
+        run: |
+          aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
+
+      - name: Apply Kubernetes manifests
+        run: |
+          kubectl apply -f kubernetes/
