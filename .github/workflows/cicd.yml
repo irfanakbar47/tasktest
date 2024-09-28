@@ -3,7 +3,7 @@ name: Deploy to EKS
 on:
   push:
     paths:
-      - 'kubernetes/**'  # Trigger the workflow only if there are changes in the kubernetes directory
+      - 'kubernetes/**'  # testing Trigger the workflow only if there are changes in the kubernetes directory
     branches:
       - main  # Adjust the branch according to your setup
 
