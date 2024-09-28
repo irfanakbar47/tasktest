@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: whoami-ingress
   annotations:
-    #nginx.ingress.kubernetes.io/rewrite-target: "/"
+    ##nginx.ingress.kubernetes.io/rewrite-target: "/"
     #nginx.ingress.kubernetes.io/canary: "true"  # Enable canary routing
     #nginx.ingress.kubernetes.io/canary-weight: "50"  # 20% of traffic to the canary version
 spec:
