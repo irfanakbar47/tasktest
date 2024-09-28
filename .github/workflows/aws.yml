@@ -23,10 +23,7 @@ jobs:
               aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
               aws-region: ${{ env.AWS_REGION }}
 
-      - name: Construct STS Endpoint
-        run: |
-          echo "Constructed STS Endpoint: sts.${{ secrets.AWS_REGION }}.amazonaws.com"
-          nslookup sts.${{ secrets.AWS_REGION }}.amazonaws.com
+     
 
       - name: Set up kubectl
         run: |
