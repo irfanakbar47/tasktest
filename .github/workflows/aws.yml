@@ -11,6 +11,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Check DNS Resolution
+        run: |
+          echo "Checking DNS resolution for STS endpoint..."
+          nslookup sts.${{ secrets.AWS_REGION }}.amazonaws.com
+      
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
