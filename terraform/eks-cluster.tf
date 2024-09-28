@@ -3,7 +3,7 @@ resource "aws_eks_cluster" "task_cluster" {
   role_arn = aws_iam_role.task_eks_role.arn
 
   vpc_config {
-    subnet_ids       = aws_subnet.task_public_subnet[*].id  # Private subnets for worker nodes
+    subnet_ids       = aws_subnet.task_public_subnet[*].id  # Public subnets for worker nodes
     security_group_ids = [aws_security_group.task_eks_cluster_sg.id]  # Attach cluster SG
   }
 
