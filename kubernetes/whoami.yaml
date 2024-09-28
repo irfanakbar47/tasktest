@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whoami-nodejs-express
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: whoami-nodejs-express
+  template:
+    metadata:
+      labels:
+        app: whoami-nodejs-express
+    spec:
+      containers:
+      - name: whoami-nodejs-express
+        image: congtaojiang/whoami-nodejs-express
+        ports:
+        - containerPort: 8080
