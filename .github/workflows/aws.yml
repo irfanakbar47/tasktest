@@ -5,7 +5,9 @@ on:
 
     branches:
       - main  # Adjust the branch according to your setup
-
+env:
+  AWS_REGION: us-east-2                   # set this to your preferred AWS region, e.g. us-west-1
+  #ECR_REPOSITORY: irfan-task           # set this to your Amazon ECR repository name
 jobs:
   deploy:
     runs-on: ubuntu-latest
