@@ -15,13 +15,13 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: whoami-canary # Old version service
+            name: whoami-nodejs-express-svc # Old version service
             port:
               number: 80                     # Port of your Service
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: whoami-nodejs-express-svc  # New canary version service
+            name: whoami-canary  # New canary version service
             port:
               number: 80
